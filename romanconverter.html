@@ -1,0 +1,40 @@
+<html ng-app>
+<head>
+<title>Roman Numbers</title>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.7/angular.min.js"></script>
+<script>
+function integer_to_roman() {
+var num=document.getElementById("digits").value;
+var digits = String(+num).split(""),
+key = ["","C","CC","CCC","CD","D","DC","DCC","DCCC","CM",
+"","X","XX","XXX","XL","L","LX","LXX","LXXX","XC",
+"","I","II","III","IV","V","VI","VII","VIII","IX"],
+roman_num = "",
+i = 3;
+while (i--)
+roman_num = (key[+digits.pop() + (i * 10)] || "") + roman_num;
+var ans=Array(+digits.join("") + 1).join("M") + roman_num;
+document.getElementById("answer").innerHTML=ans;
+}
+</script>
+
+<body>
+<div class="container">
+<div class="jumbotron" style="padding:10px;">
+<h3 style="color:#8ECADC">Roman Number Converter</h3>
+</div>
+<div class="container">
+<p style="color:#8ECADC"; font-size:15px> Enter only Number:
+<span><input type="text" id="digits" color:"8ECADC" onkeyup="integer_to_roman()"></input>
+</span>
+</p>
+<p style="color:#8ECADC; font-size:15px;">Your Result : <span id="answer"></span></p>
+</div>
+</div>
+</body>
+</head>
+</html>
